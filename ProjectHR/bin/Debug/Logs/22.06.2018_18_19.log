@@ -1,0 +1,4 @@
+[2018/06/22 18:19:32.114] (Info) Main Window Started // ProjectHR.MainWindow..ctor at line 27
+[2018/06/22 18:19:36.049] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 170
+[2018/06/22 18:19:43.711] (Info) A new employee can not be assigned a level above 2! // ProjectHR.Controllers.Inspection.ShowMessage at line 27
+[2018/06/22 18:20:12.150] (Info) A new employee can not be assigned a level above 2! // ProjectHR.Controllers.Inspection.ShowMessage at line 27

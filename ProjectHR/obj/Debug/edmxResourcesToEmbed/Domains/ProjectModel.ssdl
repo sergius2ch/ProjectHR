@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProjectModelStoreContainer">
+    <EntitySet Name="Departments" EntityType="ProjectModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SkillLevels" EntityType="ProjectModel.Store.SkillLevels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="ProjectModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Changes" EntityType="ProjectModel.Store.Changes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Probations" EntityType="ProjectModel.Store.Probations" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EmployeeProbation" Association="ProjectModel.Store.EmployeeProbation">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Probation" EntitySet="Probations" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeDepartment" Association="ProjectModel.Store.EmployeeDepartment">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeSkillLevel" Association="ProjectModel.Store.EmployeeSkillLevel">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="SkillLevel" EntitySet="SkillLevels" />
+    </AssociationSet>
+    <AssociationSet Name="ChangeEmployee" Association="ProjectModel.Store.ChangeEmployee">
+      <End Role="Change" EntitySet="Changes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaxNumberEmployees" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkillLevels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Level" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Secondname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lastname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="EmploymentDate" Type="datetime" Nullable="false" />
+    <Property Name="ProbationPeriod_Id" Type="int" Nullable="false" />
+    <Property Name="CurrentDepartment_Id" Type="int" Nullable="false" />
+    <Property Name="Skill_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Changes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChangeDateTime" Type="datetime" Nullable="false" />
+    <Property Name="PropertyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OldValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubjectEmployee_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Probations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DurationInMonth" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EmployeeProbation">
+    <End Role="Employee" Type="ProjectModel.Store.Employees" Multiplicity="*" />
+    <End Role="Probation" Type="ProjectModel.Store.Probations" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Probation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="ProbationPeriod_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeDepartment">
+    <End Role="Employee" Type="ProjectModel.Store.Employees" Multiplicity="*" />
+    <End Role="Department" Type="ProjectModel.Store.Departments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="CurrentDepartment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeSkillLevel">
+    <End Role="Employee" Type="ProjectModel.Store.Employees" Multiplicity="*" />
+    <End Role="SkillLevel" Type="ProjectModel.Store.SkillLevels" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SkillLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Skill_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChangeEmployee">
+    <End Role="Change" Type="ProjectModel.Store.Changes" Multiplicity="*" />
+    <End Role="Employee" Type="ProjectModel.Store.Employees" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Change">
+        <PropertyRef Name="SubjectEmployee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

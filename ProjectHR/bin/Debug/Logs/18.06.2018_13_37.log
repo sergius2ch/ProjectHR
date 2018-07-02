@@ -1,0 +1,5 @@
+[2018/06/18 13:37:42.748] (Info) The logger is configured, the application is running // ProjectHR.App..ctor at line 24
+[2018/06/18 13:37:55.756] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 13:37:58.026] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 13:38:15.913] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 13:38:27.652] (Info) The application stopped in normal mode // ProjectHR.App.App_Exit at line 29

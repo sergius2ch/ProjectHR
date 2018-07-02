@@ -1,0 +1,8 @@
+[2018/06/18 00:49:05.716] (Info) Логгер настроен, приложение запущено // ProjectHR.App..ctor at line 27
+[2018/06/18 00:49:17.429] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:19.797] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:22.812] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:24.387] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:27.603] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:30.032] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 146
+[2018/06/18 00:49:37.245] (Info) Приложение закрыто в штатном режиме // ProjectHR.App.App_Exit at line 32

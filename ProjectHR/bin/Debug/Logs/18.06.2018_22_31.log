@@ -1,0 +1,21 @@
+[2018/06/18 22:31:23.470] (Info) The logger is configured, the application is running // ProjectHR.App..ctor at line 24
+[2018/06/18 22:34:13.477] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:34:25.741] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:34:30.521] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:35:10.265] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:35:16.983] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:35:42.810] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:35:46.083] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:35:52.172] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:20.213] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:31.878] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:36.794] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:44.159] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:51.067] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:55.046] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:36:59.241] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:37:03.193] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:37:06.264] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:37:15.934] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:37:18.827] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 145
+[2018/06/18 22:37:32.950] (Info) The application stopped in normal mode // ProjectHR.App.App_Exit at line 29

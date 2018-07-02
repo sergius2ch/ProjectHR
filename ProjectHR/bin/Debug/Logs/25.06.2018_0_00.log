@@ -1,0 +1,5 @@
+[2018/06/25 00:00:02.217] (Info) Main Window Started // ProjectHR.MainWindow..ctor at line 27
+[2018/06/25 00:00:09.172] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 211
+[2018/06/25 00:00:18.834] (Info) Employee Иванов И. И. Saved! // ProjectHR.Controllers.Inspection.NotifySuccess at line 20
+[2018/06/25 00:00:31.035] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 211
+[2018/06/25 00:02:06.005] (Info) The application stopped in normal mode // ProjectHR.App.App_Exit at line 30

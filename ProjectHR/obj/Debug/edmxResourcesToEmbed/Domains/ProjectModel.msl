@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectModelContainer">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MaxNumberEmployees" ColumnName="MaxNumberEmployees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkillLevels">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.SkillLevel)">
+        <MappingFragment StoreEntitySet="SkillLevels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Changes">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Change)">
+        <MappingFragment StoreEntitySet="Changes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChangeDateTime" ColumnName="ChangeDateTime" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Probations">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Probation)">
+        <MappingFragment StoreEntitySet="Probations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DurationInMonth" ColumnName="DurationInMonth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeProbation" TypeName="ProjectModel.EmployeeProbation" StoreEntitySet="Employees">
+      <EndProperty Name="Probation">
+        <ScalarProperty Name="Id" ColumnName="ProbationPeriod_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeDepartment" TypeName="ProjectModel.EmployeeDepartment" StoreEntitySet="Employees">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="CurrentDepartment_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeSkillLevel" TypeName="ProjectModel.EmployeeSkillLevel" StoreEntitySet="Employees">
+      <EndProperty Name="SkillLevel">
+        <ScalarProperty Name="Id" ColumnName="Skill_Id" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChangeEmployee" TypeName="ProjectModel.ChangeEmployee" StoreEntitySet="Changes">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="SubjectEmployee_Id" />
+      </EndProperty>
+      <EndProperty Name="Change">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

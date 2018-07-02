@@ -1,0 +1,5 @@
+[2018/06/24 23:57:27.182] (Info) Main Window Started // ProjectHR.MainWindow..ctor at line 27
+[2018/06/24 23:57:34.892] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 207
+[2018/06/24 23:57:40.404] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 207
+[2018/06/24 23:57:44.978] (Info) ActivateView PageEmployeeHistory // ProjectHR.Controllers.MainController.ActivateView at line 207
+[2018/06/24 23:57:47.241] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 207

@@ -1,0 +1,65 @@
+﻿<Page x:Class="ProjectHR.Views.PageSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectHR.Views"
+      mc:Ignorable="d" 
+      xmlns:s="clr-namespace:UIControls;assembly=UIControls"
+      d:DesignHeight="60" d:DesignWidth="700"
+      Title="PageSearch">
+
+    <Border BorderBrush="Blue" BorderThickness="4">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="2" Background="Transparent"
+                    ToolTip="Reset search parameters and results"
+                    Click="BtnResetSearchClick">
+                <Image Source="../Images/Reset.png"/>
+            </Button>
+
+            <Button Name="btnGoSearch" Grid.Column="4" Margin="2" Background="Transparent"
+                    ToolTip="Perform a search and filtering"
+                    Click="BtnGoSearchClick">
+                <Image Source="../Images/Play.png"/>
+            </Button>
+
+            <Border Grid.Column="1"
+                BorderBrush="DarkGray" BorderThickness="1" Margin="2">
+                <s:SearchTextBox Name="searchBox"
+                             Grid.Column="0" 
+                             Height="38"
+                             Margin="5" 
+                             VerticalAlignment="Center" 
+                             Background="AliceBlue" />
+            </Border>
+            
+            <Border Grid.Column="2"
+                BorderBrush="DarkGray" BorderThickness="1" Margin="2">
+                <StackPanel Orientation="Vertical">
+                    <Label Padding="2">Department</Label>
+                    <ComboBox Name="cbD" Margin="2"
+                                      ItemsSource="{Binding Data.Departments}"
+                                      DisplayMemberPath="Title"/>
+                </StackPanel>
+            </Border>
+            
+            <Border Grid.Column="3"
+                BorderBrush="DarkGray" BorderThickness="1" Margin="2">
+                <StackPanel Orientation="Vertical">
+                    <Label Padding="2">Skill level</Label>
+                    <ComboBox Name="cbS" Margin="2"
+                                      ItemsSource="{Binding Data.SkillLevels}"
+                                      DisplayMemberPath="Description"/>
+                </StackPanel>
+            </Border>
+            </Grid>
+    </Border>
+</Page>

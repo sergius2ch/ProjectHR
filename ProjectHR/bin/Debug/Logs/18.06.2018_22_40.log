@@ -1,0 +1,2 @@
+[2018/06/18 22:40:01.979] (Info) The logger is configured, the application is running // ProjectHR.App..ctor at line 24
+[2018/06/18 22:40:11.302] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 145

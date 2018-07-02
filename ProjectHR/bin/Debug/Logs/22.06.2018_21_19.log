@@ -1,0 +1,13 @@
+[2018/06/22 21:19:24.542] (Info) Main Window Started // ProjectHR.MainWindow..ctor at line 27
+[2018/06/22 21:19:29.641] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 170
+[2018/06/22 21:19:38.980] (Warn) A new employee can not be assigned a level above 2! // ProjectHR.Controllers.Inspection.NotifyError at line 34
+[2018/06/22 21:19:45.632] (Warn) A new employee can not be assigned a level above 2! // ProjectHR.Controllers.Inspection.NotifyError at line 34
+[2018/06/22 21:19:51.633] (Info) Employee Иванов И. И. Saved! // ProjectHR.Controllers.Inspection.NotifySuccess at line 20
+[2018/06/22 21:20:19.469] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 170
+[2018/06/22 21:20:51.264] (Warn) Transfer is not possible, probation period is not over // ProjectHR.Controllers.Inspection.NotifyError at line 34
+[2018/06/22 21:20:55.592] (Warn) Transfer is not possible, probation period is not over // ProjectHR.Controllers.Inspection.NotifyError at line 34
+[2018/06/22 21:20:59.895] (Warn) Transfer is not possible, probation period is not over // ProjectHR.Controllers.Inspection.NotifyError at line 34
+[2018/06/22 21:21:02.885] (Info) ActivateView PageEmployeeDetails // ProjectHR.Controllers.MainController.ActivateView at line 170
+[2018/06/22 21:21:11.194] (Info) Employee Иванов И. И. Updated! // ProjectHR.Controllers.Inspection.NotifySuccess at line 20
+[2018/06/22 21:21:17.675] (Info) ActivateView PageListEmployees // ProjectHR.Controllers.MainController.ActivateView at line 170
+[2018/06/22 21:21:47.299] (Info) The application stopped in normal mode // ProjectHR.App.App_Exit at line 30

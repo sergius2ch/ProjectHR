@@ -1,0 +1,72 @@
+﻿<Window x:Class="ProjectHR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectHR"
+        xmlns:s="clr-namespace:UIControls;assembly=UIControls"
+        mc:Ignorable="d"
+        Title="HR Project" MinHeight="500" MinWidth="570">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Images/HR-logo.png"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+            <Button Margin="5" Background="Transparent"
+                          Command="{Binding SwitchLogMonitor}"
+                          ToolTip="Show/Hide Logger window"
+                          >
+                <Image Source="Images/Icon-Log.png"/>
+            </Button>
+            <Button Margin="5" Background="Transparent"
+                    Command="{Binding SelectExcelFile}"
+                    ToolTip="Export employees from xls sheet">
+                <Image Source="Images/XlsImport.png"/>
+            </Button>
+            <ToggleButton Margin="5" Background="Transparent"
+                          ToolTip="Show/Hide search and filter mode"
+                          Command="{Binding SearchMode}">
+                <Image Source="Images/Search.png"/>
+            </ToggleButton>
+            <Button Margin="5" Background="Transparent"
+                    ToolTip="Hire a new employee"
+                    Command="{Binding NewEmployee}">
+                <Image Source="Images/Add.png"/>
+            </Button>
+        </StackPanel>
+
+        <Frame Name="searchFrame"
+               Margin="2" Grid.Column="1" Source="Views/PageSearch.xaml" NavigationUIVisibility="Hidden"/>
+
+        <Frame Name="mainFrame"
+               Margin="2" Grid.Row="1" Grid.Column="1"
+               NavigationUIVisibility="Hidden" 
+               Source="Views/PageListEmployees.xaml">
+
+        </Frame>
+        
+        <Border Name="statusBorder" Grid.Row="3" Grid.ColumnSpan="3"
+			  HorizontalAlignment="Stretch" 
+			  Background="LightCyan">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Margin="2" Name="progressBar" HorizontalAlignment="Stretch" Visibility="Hidden"/>
+                <ResizeGrip Grid.Column="1" HorizontalAlignment="Right"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

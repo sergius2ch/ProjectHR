@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ProjectModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ProjectModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="ProjectModel.Department" />
+    <EntitySet Name="SkillLevels" EntityType="ProjectModel.SkillLevel" />
+    <EntitySet Name="Employees" EntityType="ProjectModel.Employee" />
+    <EntitySet Name="Changes" EntityType="ProjectModel.Change" />
+    <EntitySet Name="Probations" EntityType="ProjectModel.Probation" />
+    <AssociationSet Name="EmployeeProbation" Association="ProjectModel.EmployeeProbation">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Probation" EntitySet="Probations" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeDepartment" Association="ProjectModel.EmployeeDepartment">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeSkillLevel" Association="ProjectModel.EmployeeSkillLevel">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="SkillLevel" EntitySet="SkillLevels" />
+    </AssociationSet>
+    <AssociationSet Name="ChangeEmployee" Association="ProjectModel.ChangeEmployee">
+      <End Role="Change" EntitySet="Changes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" Unicode="true" />
+    <Property Name="MaxNumberEmployees" Type="String" Nullable="false" />
+    <NavigationProperty Name="DepartmentStaff" Relationship="ProjectModel.EmployeeDepartment" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="SkillLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="ProjectModel.EmployeeSkillLevel" FromRole="SkillLevel" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" Nullable="false" />
+    <Property Name="Secondname" Type="String" Nullable="false" />
+    <Property Name="Lastname" Type="String" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" />
+    <Property Name="EmploymentDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ProbationPeriod" Relationship="ProjectModel.EmployeeProbation" FromRole="Employee" ToRole="Probation" />
+    <NavigationProperty Name="CurrentDepartment" Relationship="ProjectModel.EmployeeDepartment" FromRole="Employee" ToRole="Department" />
+    <NavigationProperty Name="Skill" Relationship="ProjectModel.EmployeeSkillLevel" FromRole="Employee" ToRole="SkillLevel" />
+    <NavigationProperty Name="PropertiesChanges" Relationship="ProjectModel.ChangeEmployee" FromRole="Employee" ToRole="Change" />
+  </EntityType>
+  <EntityType Name="Change">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChangeDateTime" Type="DateTime" Nullable="false" />
+    <Property Name="PropertyName" Type="String" Nullable="false" />
+    <Property Name="NewValue" Type="String" Nullable="false" />
+    <Property Name="OldValue" Type="String" Nullable="false" />
+    <NavigationProperty Name="SubjectEmployee" Relationship="ProjectModel.ChangeEmployee" FromRole="Change" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Probation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DurationInMonth" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="ProjectModel.EmployeeProbation" FromRole="Probation" ToRole="Employee" />
+  </EntityType>
+  <Association Name="EmployeeProbation">
+    <End Type="ProjectModel.Employee" Role="Employee" Multiplicity="*" />
+    <End Type="ProjectModel.Probation" Role="Probation" Multiplicity="1" />
+  </Association>
+  <Association Name="EmployeeDepartment">
+    <End Type="ProjectModel.Employee" Role="Employee" Multiplicity="*" />
+    <End Type="ProjectModel.Department" Role="Department" Multiplicity="1" />
+  </Association>
+  <Association Name="EmployeeSkillLevel">
+    <End Type="ProjectModel.Employee" Role="Employee" Multiplicity="*" />
+    <End Type="ProjectModel.SkillLevel" Role="SkillLevel" Multiplicity="1" />
+  </Association>
+  <Association Name="ChangeEmployee">
+    <End Type="ProjectModel.Change" Role="Change" Multiplicity="*" />
+    <End Type="ProjectModel.Employee" Role="Employee" Multiplicity="1" />
+  </Association>
+</Schema>

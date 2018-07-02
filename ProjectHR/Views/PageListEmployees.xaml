@@ -1,0 +1,123 @@
+﻿<Page x:Class="ProjectHR.Views.PageListEmployees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectHR.Views"
+      xmlns:s="clr-namespace:UIControls;assembly=UIControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="350"
+      Title="PageListEmployees">
+
+    <Grid Background="Blue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="1" 
+                Background="Blue">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="14"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White">
+                List of employees
+                </TextBlock>
+                <TextBlock FontSize="14"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White" Text="{Binding ElementName=listBoxEmployees, Path=Items.Count, StringFormat={} [{0}]}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1"
+                Background="DarkBlue" Margin="4" VerticalAlignment="Center">
+            <Grid Margin="8,2,8,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="1">
+                    <s:LabelUpDown Name="lbLastname" LabelText="Lastname" Foreground="White"/>
+                    <s:LabelUpDown Name="lbFirstname" LabelText="Firstname" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" 
+                                                Margin="1" HorizontalAlignment="Right">
+                    <s:LabelUpDown Name="lbDepartment" LabelText="Department" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" 
+                                                Margin="1" HorizontalAlignment="Right">
+                    <s:LabelUpDown Name="lbSkillLevel" LabelText="Skill" Foreground="White"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <ScrollViewer Grid.Row="2" Grid.Column="1"
+                  Name="myScrollViewer"
+                  Margin="4"
+                  VerticalAlignment="Stretch"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+            <Border Grid.Row="1" Background="Azure">
+                <ListBox Name="listBoxEmployees" Grid.Row="1" Grid.Column="1"
+                         SelectionChanged="ListEmployeesSelectionChanged"
+                         HorizontalContentAlignment="Stretch" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="2" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="3">
+                                <Grid Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="3">
+                                        <TextBlock Text="{Binding Lastname}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Firstname}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" 
+                                                Margin="3" HorizontalAlignment="Right">
+                                        <TextBlock Text="["/>
+                                        <TextBlock Text="{Binding CurrentDepartment.Title}"/>
+                                        <TextBlock Text="]"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" 
+                                                Margin="3" HorizontalAlignment="Right">
+                                        <TextBlock Text="("/>
+                                        <TextBlock Text="{Binding Skill.Description}"/>
+                                        <TextBlock Text=")"/>
+                                    </StackPanel>
+                                </Grid>
+                                
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </ScrollViewer>
+        <Border Grid.Row="3" Grid.Column="1" Background="Blue">
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Width="75" Command="{Binding ViewDetails}">
+                    View details
+                </Button>
+                <Button Margin="5" Width="75" Command="{Binding EditEmployee}">
+                    Edit
+                </Button>
+                <Button Margin="5" Width="75" Command="{Binding TransferEmployee}">
+                    Transfer
+                </Button>
+                <Button Margin="5" Width="75" Command="{Binding ViewHistory}">
+                    View history
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

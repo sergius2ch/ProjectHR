@@ -1,0 +1,3 @@
+[2018/06/18 10:57:20.275] (Info) The logger is configured, the application is running // ProjectHR.App..ctor at line 24
+[2018/06/18 10:57:49.397] (Info) The logger is configured, the application is running // ProjectHR.App..ctor at line 24
+[2018/06/18 11:02:56.415] (Info) The application stopped in normal mode // ProjectHR.App.App_Exit at line 29
